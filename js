@@ -19,14 +19,12 @@ const word = document.getElementById('input');
         })
         const displayData = (data) => {
             console.log(data);
-
-            let definitions = data[0].meanings[0].definitions[0];
-            let audio = new Audio("https:" + data[0].phonetics[0].audio);
-
-
-
-            means.innerHTML = `Meaning : ${definitions.definition}`;
-
-            //adding butto of audio at runtime and make it function
-
+            if(data.title == "No Definitions Found")
+            {
+                means.innerHTML = `No such word found `;
+            }
+            else{
+                let definitions = data[0].meanings[0].definitions[0];
+                means.innerHTML = `Meaning : ${definitions.definition}`;
+            }
         }
